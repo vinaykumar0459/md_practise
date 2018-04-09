@@ -1,1 +1,30 @@
-<router-outlet></router-outlet>
+<div class="container">
+    <div class="header_main" fxLayout fxLayout.xs="column" fxLayoutAlign="center">
+      <div class="logo" fxFlex="25%">
+        <img src="http://pngimg.com/uploads/google/google_PNG19644.png">
+      </div>
+      <div class="nav_menu" fxFlex="55%">
+        <button mat-button [matMenuTriggerFor]="home">Home</button>
+        <mat-menu #home="matMenu">
+          <button mat-menu-item >Menu 1</button>
+          <button mat-menu-item>Menu 2</button>
+        </mat-menu>
+        <button mat-button>About</button>
+        <button mat-button>Careers</button>
+      </div>
+    </div>
+    <div class="body_main" fxLayout fxLayout.xs="column" fxLayoutAlign="center">
+      <div class="signup_left" fxFlex="40">
+        <h1>Lorem ipsum dolor</h1>
+        <h1>Lorem ipsum dolor</h1>
+        <h1>Lorem ipsum dolor</h1>
+        <div class="login_links">
+          <button mat-raised-button color="accent" routerLink="/signup">Sign Up</button>
+          <button mat-raised-button color="accent" routerLink="/login">Login</button>
+        </div>
+      </div>
+      <div class="signup_right" fxFlex="30" fxFlexOffset="10" fxFlexOffset.xs="0">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>

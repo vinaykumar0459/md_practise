@@ -1,0 +1,82 @@
+<h3 class="register_head">Register here !</h3>
+<mat-card>
+  <form class="example-form" name="registerform" #login="ngForm" (ngSubmit)="registerform(User)" novalidate>
+    <mat-form-field>
+      <input matInput name="username" [(ngModel)]="User.username" #username="ngModel" placeholder="Enter your username" minlength="5" maxlength="35" required>
+      <span matPrefix><i class="material-icons">perm_identity</i>&nbsp;</span>
+    </mat-form-field>
+    <div *ngIf="username.errors && (username.dirty || username.touched)" class="error_msgs">
+      <small [hidden]="!username.errors.required">
+        Username is required
+      </small>
+      <small [hidden]="!username.errors.minlength">
+        Username should be minimum 5 characters
+      </small>
+      <small [hidden]="!username.errors.maxlength">
+        Username should be maximum 35 characters
+      </small>
+    </div>
+    <mat-form-field class="example-full-width">
+      <input matInput name="email" [(ngModel)]="User.email" #email="ngModel" placeholder="Email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+      <span matPrefix><i class="material-icons">email</i>&nbsp;</span>
+    </mat-form-field>
+    <div *ngIf="email.errors && (email.dirty || email.touched)" class="error_msgs">
+      <small [hidden]="!email.errors.required">
+        Email is required
+      </small>
+      <small [hidden]="!email.errors.pattern">
+        Email is invalid
+      </small>
+    </div>
+    <mat-form-field>
+      <input matInput name="password" [(ngModel)]="User.password" #password="ngModel" placeholder="Create Password" minlength="6" maxlength="60" required>
+      <span matPrefix><i class="material-icons">lock</i>&nbsp;</span>
+    </mat-form-field>
+    <div *ngIf="password.errors && (password.dirty || password.touched)" class="error_msgs">
+      <small [hidden]="!password.errors.required">
+        Password is required
+      </small>
+      <small [hidden]="!password.errors.minlength">
+        Password should be minimum 6 characters
+      </small>
+      <small [hidden]="!password.errors.maxlength">
+        Password should be maximum 60 characters
+      </small>
+    </div>
+    <mat-form-field>
+      <input matInput name="confirmpassword" [(ngModel)]="User.confirmpassword" #confirmpassword="ngModel" placeholder="Confirm Password" required>
+      <span matPrefix><i class="material-icons">lock</i>&nbsp;</span>
+    </mat-form-field>
+    <div *ngIf="(User.password !== User.confirmpassword) && confirmpassword.touched" class="error_msgs">
+      <small>
+        Password do not match
+      </small>
+    </div>
+    <mat-form-field class="example-full-width">
+      <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" name="dateofbirth" [(ngModel)]="User.dateofbirth" #dateofbirth="ngModel" placeholder="Select your Date of Birth" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <span matPrefix><i class="material-icons">date_range</i>&nbsp;</span>
+    </mat-form-field>
+    <div *ngIf="dateofbirth.errors && (dateofbirth.dirty || dateofbirth.touched)" class="error_msgs">
+      <small [hidden]="!dateofbirth.errors.required">
+        Date of birth is required
+      </small>
+    </div>
+    <mat-radio-group name="gender" [(ngModel)]="User.gender" #gender="ngModel" required>
+      <mat-radio-button ngDefaultControl value="male" name="gender">Male</mat-radio-button>
+      <mat-radio-button ngDefaultControl value="female" name="gender">Female</mat-radio-button>
+    </mat-radio-group>
+    <div *ngIf="gender.errors && (gender.dirty || gender.touched)" class="error_msgs">
+      <small [hidden]="!gender.errors.required">
+        Gender is required
+      </small>
+    </div>
+    <p class="terms_text">By clicking Sign Up, you are agree to our Terms and Conditions</p>
+    <div class="register_btn">
+      <button type="submit" mat-raised-button color="accent">Sign Up</button>
+    </div>  
+  </form>
+</mat-card>
+<p class="link_text">Already have an account <a routerLink="/login">Login</a> here</p>
+<p class="link_text">Forgot Password ? <a routerLink="/reset">click </a> here</p>

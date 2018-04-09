@@ -1,0 +1,18 @@
+<h3 class="register_head">Login here !</h3>
+<mat-card>
+  <form class="example-form" name="loginform" #login="ngForm" (ngSubmit)="loginform(User)" novalidate>
+    <mat-form-field>
+      <input matInput name="emailid" [(ngModel)]="User.email" [(ngModel)]="User.username"  #email="ngModel" placeholder="Enter your username or Email ID" required>
+      <span matPrefix><i class="material-icons">perm_identity</i>&nbsp;</span>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="password" [(ngModel)]="User.password" #email="ngModel" placeholder="Enter your Password" required>
+      <span matPrefix><i class="material-icons">lock</i>&nbsp;</span>
+    </mat-form-field>
+    <div class="register_btn">
+      <button type="submit" mat-raised-button color="accent">Login</button>
+    </div>  
+  </form>
+</mat-card>
+<p class="link_text">Don't have an account <a routerLink="/signup">Sign Up</a> here</p>
+<p class="link_text">Forgot Password ? <a routerLink="/reset">click </a> here</p>
