@@ -1,5 +1,6 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, Injectable} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { AppService} from './app.service';
 
 @Component({ 
   selector: 'app-root',
@@ -25,20 +26,27 @@ export class AppComponent {
 
 @Component({  
   selector: 'dialog-overview-example-dialog',  
-  templateUrl: 'dialog-overview-example-dialog.html',
+  templateUrl: 'dialog-overview-example-dialog.html'
 })
 export class DialogOverviewExampleDialog {  
   User : dialogdetails;  
+  dummyip : any;
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,
+  private app_service:AppService) { }
 
   ngOnInit() { 
-    var randomnumber = Math.random().toString(36).substring(7);       
+    var randomnumber = Math.random().toString(36).substring(7);
+    this.app_service.getip()
+      .subscribe(ipaddress => this.dummyip = ipaddress);  
+      console.log(this.dummyip)     
     this.User = {      
       dummy : randomnumber,      
-      gender : "" 
-    }      
+      gender : "",
+      dummyip : this.dummyip
+    }   
+       
   }
   dialoguserdetails(User) {
     console.log(this.User)
@@ -52,4 +60,5 @@ export class DialogOverviewExampleDialog {
 interface dialogdetails {  
   dummy : string;  
   gender : string;
+  dummyip : any;
 }

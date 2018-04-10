@@ -10,7 +10,9 @@ import { RegisterComponent } from './register/register.component';
 import { appRouting, appRoutingProviders } from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { AppService } from './app.service';
 
 @NgModule({
   declarations: [
@@ -38,9 +40,11 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     MatTableModule,
     MatDialogModule,
     FlexLayoutModule,
-    appRouting
+    appRouting,
+    HttpClientModule,
+    HttpModule
   ],
-  providers: [appRoutingProviders],
+  providers: [appRoutingProviders, AppService],
   bootstrap: [AppComponent]
 })
 
