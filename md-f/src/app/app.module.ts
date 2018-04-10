@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { AppComponent } from './app.component';
+import { AppComponent, DialogOverviewExampleDialog } from './app.component';
 import { MatInputModule, MatFormFieldModule, MatSelectModule, MatTableModule, MatDialogModule,
 MatMenuModule, MatCardModule, MatDatepickerModule, MatNativeDateModule, MatRadioModule,MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,11 +15,12 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 @NgModule({
   declarations: [
     AppComponent,
+    DialogOverviewExampleDialog,
     RegisterComponent,
     LoginComponent,
     ForgotPasswordComponent
   ],
-  entryComponents: [],
+  entryComponents: [DialogOverviewExampleDialog],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

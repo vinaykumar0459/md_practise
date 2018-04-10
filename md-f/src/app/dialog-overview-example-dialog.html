@@ -1,0 +1,16 @@
+<form class="example-form" name="dialoguserdetails" #dialog="ngForm" (ngSubmit)="dialoguserdetails(User)" novalidate>
+    <h4>Hello, {{User.dummy}}</h4>
+    <mat-radio-group name="gender" [(ngModel)]="User.gender" #gender="ngModel">
+        <mat-radio-button ngDefaultControl value="male" name="gender">Male</mat-radio-button>
+        <mat-radio-button ngDefaultControl value="female" name="gender">Female</mat-radio-button>
+    </mat-radio-group>
+    <div *ngIf="gender.errors && (gender.dirty || gender.touched)" class="error_msgs">
+        <small [hidden]="!gender.errors.required">
+            Gender is required
+        </small>
+    </div>
+    <p class="terms_text">By clicking Sign Up, you are agree to our Terms and Conditions</p>
+    <div class="register_btn">
+        <button type="submit" mat-raised-button color="accent" [disabled]="!dialog.form.valid">Sign Up</button>
+    </div>  
+</form>

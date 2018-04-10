@@ -10,7 +10,7 @@
       <span matPrefix><i class="material-icons">lock</i>&nbsp;</span>
     </mat-form-field>
     <div class="register_btn">
-      <button type="submit" mat-raised-button color="accent">Login</button>
+      <button type="submit" mat-raised-button color="accent" [disabled]="!login.form.valid">Login</button>
     </div>  
   </form>
 </mat-card>

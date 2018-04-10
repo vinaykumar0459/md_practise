@@ -1,6 +1,6 @@
 <h3 class="register_head">Register here !</h3>
 <mat-card>
-  <form class="example-form" name="registerform" #login="ngForm" (ngSubmit)="registerform(User)" novalidate>
+  <form class="example-form" name="registerform" #signup="ngForm" (ngSubmit)="registerform(User)" novalidate>
     <mat-form-field>
       <input matInput name="username" [(ngModel)]="User.username" #username="ngModel" placeholder="Enter your username" minlength="5" maxlength="35" required>
       <span matPrefix><i class="material-icons">perm_identity</i>&nbsp;</span>
@@ -74,7 +74,7 @@
     </div>
     <p class="terms_text">By clicking Sign Up, you are agree to our Terms and Conditions</p>
     <div class="register_btn">
-      <button type="submit" mat-raised-button color="accent">Sign Up</button>
+      <button type="submit" mat-raised-button color="accent" [disabled]="!signup.form.valid">Sign Up</button>
     </div>  
   </form>
 </mat-card>

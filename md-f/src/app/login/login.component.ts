@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
     // this.User.email = undefined;
     // this.User.password = undefined;
   }
-
 }
 interface Logindetails {
   username : String;
