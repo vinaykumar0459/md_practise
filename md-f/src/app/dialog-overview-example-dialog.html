@@ -1,6 +1,6 @@
 <form class="example-form" name="dialoguserdetails" #dialog="ngForm" (ngSubmit)="dialoguserdetails(User)" novalidate>
-    <h4>Hello, {{User.dummy}}</h4>
-    <mat-radio-group name="gender" [(ngModel)]="User.gender" #gender="ngModel">
+    <h4>Hello, {{User.login_id}}</h4>
+    <mat-radio-group name="gender" [(ngModel)]="User.gender" #gender="ngModel" required>
         <mat-radio-button ngDefaultControl value="male" name="gender">Male</mat-radio-button>
         <mat-radio-button ngDefaultControl value="female" name="gender">Female</mat-radio-button>
     </mat-radio-group>

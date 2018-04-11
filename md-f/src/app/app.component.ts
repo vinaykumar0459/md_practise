@@ -9,7 +9,7 @@ import { AppService} from './app.service';
 })
   
 export class AppComponent {  
-  dummy : string;  
+  login_id : string;  
   gender: string;  
   constructor(public dialog: MatDialog) {}  
   openDialog(): void {    
@@ -17,10 +17,10 @@ export class AppComponent {
       width: '400px',      
       data: {}    
     });    
-    dialogRef.afterClosed().subscribe(result => {      
-      console.log('The dialog was closed');      
-      this.gender = result;
-    });  
+    // dialogRef.afterClosed().subscribe(result => {      
+    //   console.log('The dialog was closed');      
+    //   this.gender = result;
+    // });  
   }
 }
 
@@ -30,26 +30,31 @@ export class AppComponent {
 })
 export class DialogOverviewExampleDialog {  
   User : dialogdetails;  
-  dummyip : any;
+  dummyip : string;
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   private app_service:AppService) { }
 
   ngOnInit() { 
+    this.app_service.url = 'http://freegeoip.net/json/';
     var randomnumber = Math.random().toString(36).substring(7);
     this.app_service.getip()
-      .subscribe(ipaddress => this.dummyip = ipaddress);  
-      console.log(this.dummyip)     
+      .subscribe(ipaddress => {
+        this.User.ipaddress_main = ipaddress.json()
+        this.User.user_ip = ipaddress.json().ip
+      });
     this.User = {      
-      dummy : randomnumber,      
+      login_id : randomnumber,      
       gender : "",
-      dummyip : this.dummyip
+      user_ip : "",
+      ipaddress_main : ""
     }   
        
   }
   dialoguserdetails(User) {
     console.log(this.User)
+    this.dialogRef.close()
   }
   
   onNoClick(): void {
@@ -58,7 +63,8 @@ export class DialogOverviewExampleDialog {
 }
           
 interface dialogdetails {  
-  dummy : string;  
+  login_id : string;  
   gender : string;
-  dummyip : any;
+  user_ip : any;
+  ipaddress_main : any;
 }
