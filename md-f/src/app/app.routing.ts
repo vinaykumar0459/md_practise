@@ -1,24 +1,17 @@
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterComponent } from './register/register.component';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+// import { RegisterComponent } from './user-actions/register/register.component'
 
 const appRoutes: Routes = [
-  { path:'',pathMatch:'full', redirectTo:'signup'},
   {
-    path: 'signup',
-    component: RegisterComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'reset',
-    component: ForgotPasswordComponent
+    path: '',
+    loadChildren: './user-actions/user-actions.module#UserActionsModule'
   }
+  // {
+  //   path: '',
+  //   pathMatch: 'full',
+  //   component : RegisterComponent
+  // }
 ];
 
 export const appRoutingProviders: any[] = [];

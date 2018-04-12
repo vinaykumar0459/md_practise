@@ -1,51 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { AppComponent, DialogOverviewExampleDialog } from './app.component';
-import { MatInputModule, MatFormFieldModule, MatSelectModule, MatTableModule, MatDialogModule,
-MatMenuModule, MatCardModule, MatDatepickerModule, MatNativeDateModule, MatRadioModule,MatButtonModule } from '@angular/material';
+// import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RegisterComponent } from './register/register.component';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
 import { appRouting, appRoutingProviders } from './app.routing';
-import { LoginComponent } from './login/login.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
-import { AppService } from './app.service';
+import { HttpModule } from "@angular/http";
+// import { RegisterComponent } from './user-actions/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogOverviewExampleDialog,
-    RegisterComponent,
-    LoginComponent,
-    ForgotPasswordComponent
+    // RegisterComponent
   ],
-  entryComponents: [DialogOverviewExampleDialog],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatRadioModule,
-    MatInputModule,
-    MatCardModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatTableModule,
-    MatDialogModule,
-    FlexLayoutModule,
+    // BrowserModule, 
     appRouting,
-    HttpClientModule,
-    HttpModule
+    FormsModule,
+    HttpModule,
+    BrowserAnimationsModule,
+    CommonModule
   ],
-  providers: [appRoutingProviders, AppService],
+  providers: [appRoutingProviders],
   bootstrap: [AppComponent]
 })
-
 export class AppModule { }
