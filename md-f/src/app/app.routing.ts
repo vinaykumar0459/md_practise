@@ -6,6 +6,10 @@ const appRoutes: Routes = [
   {
     path: '',
     loadChildren: './user-actions/user-actions.module#UserActionsModule'
+  },
+  {
+    path: 'main',
+    loadChildren: './main/main.module#MainModule'
   }
   // {
   //   path: '',

@@ -36,6 +36,16 @@ export class RegisterComponent implements OnInit {
       dateofbirth : "",
       gender : ""
     }
+    const body = document.getElementsByTagName('body')[0];
+    body.classList.add('register_body');
+  }
+  // ngOnInit(): void {
+    
+  // }
+
+  ngOnDestroy(): void {
+    const body = document.getElementsByTagName('body')[0];
+    body.classList.remove('register_body');
   }
   registerform(User) {
     console.log(this.User)

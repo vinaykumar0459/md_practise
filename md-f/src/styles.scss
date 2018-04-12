@@ -2,7 +2,6 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 body { margin: 0px; font-family: 'Open Sans'; }
-
 .container {
     margin: 0px;
     position: relative;
@@ -10,12 +9,85 @@ body { margin: 0px; font-family: 'Open Sans'; }
     width: 100%;
     height: 100vh;
     -webkit-animation-name: bgcolor; 
-    -webkit-animation-duration: 10s; 
+    -webkit-animation-duration: 15s; 
     animation-name: bgcolor;
-    animation-duration: 10s;
+    animation-duration: 15s;
     animation-iteration-count: infinite;
+    .header_main {
+        padding: 5px 10px 0px 10px;
+        .logo img {
+            width: 60%;
+            padding: 0px 0px;
+        }
+        .nav_menu {
+            text-align: right;
+            padding: 20px 10px 0px 10px;
+            button {
+                background: transparent;
+                border: 0px;
+                color: #fff;
+                font-size: 18px;
+                line-height: 26px;
+                padding: 0px 0px 0px 0px;
+                cursor: pointer;
+                margin: 0px 10px;
+            }
+            button:hover {
+                text-decoration: underline;
+            }
+        }
+     }
+     .body_main {
+         .signup_left {
+            h1 { 
+                color: #fff;
+            }
+         }
+         .signup_right {
+            .register_head {
+                background: #FF1493;
+                padding: 12px;
+                text-align: center;
+                margin: 0px;
+                COLOR: #FFF;
+                border-radius: 5px 5px 0px 0px;
+            }
+            .register_btn {
+                margin: 15px 0px;
+                text-align: right;
+            }
+            .link_text {
+                color: #fff; font-size: 13px; line-height: 16px; margin: 5px;
+                a {
+                    color: #fff;
+                }
+            }
+            .terms_text {
+                font-size: 11px; line-height: 14px;
+            }
+            .error_msgs { 
+                small {
+                    font-size: 11px; color: red; line-height: 16px; position: relative; top: -1.5em;
+                }
+            }
+            .mat-form-field {
+                width: 100%;
+            }
+            .mat-form-field-wrapper {
+                padding-bottom: 1em !important;
+            }
+            .mat-card {
+                padding: 12px 24px;
+                border-radius: 0px 0px 5px 5px !important;
+            }
+            .mat-radio-button {
+                padding-right: 15px;
+            }
+            .material-icons { font-size: 18px;}
+            span.mat-form-field { line-height: 0.5 !important;}
+         }
+     }
 }
-
 @-webkit-keyframes bgcolor {
     0%   {background: radial-gradient(at 50% -20%, #16113B, #16113B) fixed;}
     14.3%  {background: radial-gradient(at 50% -20%, #9b00a1, #16113B) fixed;}
@@ -26,8 +98,6 @@ body { margin: 0px; font-family: 'Open Sans'; }
     85.6% {background: radial-gradient(at 50% -20%, #a10000, #16113B) fixed;}
     100% {background: radial-gradient(at 50% -20%, #a10000bd, #16113B) fixed;}
 }
-
-
 @keyframes bgcolor {
     0%   {background: radial-gradient(at 50% -20%, #16113B, #16113B) fixed;}
     14.3%  {background: radial-gradient(at 50% -20%, #9b00a1, #16113B) fixed;}
@@ -38,67 +108,3 @@ body { margin: 0px; font-family: 'Open Sans'; }
     85.6% {background: radial-gradient(at 50% -20%, #a10000, #16113B) fixed;}
     100% {background: radial-gradient(at 50% -20%, #a10000bd, #16113B) fixed;}
 }
-.header_main {
-   padding: 10px;
-}
-.header_main .nav_menu {
-    text-align: right;
-    padding: 30px 10px;
-}
-.header_main .logo img {
-    width: 60%;
-    padding: 0px 0px;
-}
-.nav_menu button {
-    background: transparent;
-    border: 0px;
-    color: #fff;
-    font-size: 18px;
-    line-height: 26px;
-    padding: 0px 0px 0px 0px;
-    cursor: pointer;
-    margin: 0px 10px;
-}
-.nav_menu button:hover {
-    text-decoration: underline;
-}
-.body_main  h1 { 
-    color: #fff;
-}
-.mat-form-field {
-    width: 100%;
-}
-.register_head {
-    background: #FF1493;
-    padding: 12px;
-    text-align: center;
-    margin: 0px;
-    COLOR: #FFF;
-    border-radius: 5px 5px 0px 0px;
-}
-.mat-form-field-wrapper {
-    padding-bottom: 1em !important;
-}
-.mat-card {
-    padding: 12px 24px;
-    border-radius: 0px 0px 5px 5px !important;
-}
-.register_btn {
-    margin: 15px 0px;
-    text-align: right;
-}
-.mat-radio-button {
-    padding-right: 15px;
-}
-.terms_text {
-    font-size: 11px; line-height: 14px;
-}
-.link_text {
-    color: #fff; font-size: 13px; line-height: 16px; margin: 5px;
-}
-.link_text a {
-    color: #fff;
-}
-.material-icons { font-size: 18px;}
-span.mat-form-field { line-height: 0.5 !important;}
-.error_msgs small { font-size: 11px; color: red; line-height: 16px; position: relative; top: -1.5em;}
