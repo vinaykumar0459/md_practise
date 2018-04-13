@@ -1,0 +1,31 @@
+.nav_icons_body {
+    height: 100%;
+    background-color: #FF1493;
+    ul {
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+        li {
+            list-style-type: none;
+            a {
+                color: #fff;
+                i {
+                    font-size: 50px;
+                    line-height: 75px;
+                }
+            }
+        }
+        li::after {
+            border-bottom: 7px solid transparent;
+    border-right: 7px solid #7e7e7e;
+    border-top: 7px solid transparent;
+    display: inline-block;
+    height: 0;
+    position: absolute;
+    right: 0;
+    top: 13px;
+    vertical-align: middle;
+    width: 0;
+        }
+    }
+}
