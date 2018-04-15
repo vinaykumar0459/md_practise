@@ -20,7 +20,11 @@ const useractionsRoutes: Routes = [
         component: LoginComponent
       },
       {
-        path: 'reset',
+        path: 'forgotpassword',
+        component: ForgotPasswordComponent
+      },
+      {
+        path: 'reset/:resetlink',
         component: ForgotPasswordComponent
       }
     ]

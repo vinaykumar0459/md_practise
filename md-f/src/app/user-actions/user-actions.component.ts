@@ -37,7 +37,7 @@ export class DialogOverviewExampleDialog {
   private user_service:UserActionsService) { }
 
   ngOnInit() { 
-    this.user_service.url = 'http://freegeoip.net/json/';
+    this.user_service.ip_url = 'http://freegeoip.net/json/';
     var randomnumber = Math.random().toString(36).substring(7);
     this.user_service.getip()
       .subscribe(ipaddress => {

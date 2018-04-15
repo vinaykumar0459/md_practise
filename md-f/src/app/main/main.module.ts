@@ -4,6 +4,7 @@ import { MainRoutingModule } from './main.routing';
 import { CommonModule } from '@angular/common';
 import { NavIconsComponent } from './nav-icons/nav-icons.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AuthGuard } from '../auth/auth.guard';
 
 @NgModule({
     imports:[
@@ -15,7 +16,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         MainComponent, NavIconsComponent
     ],
     providers: [
-        
+        AuthGuard
     ]
 })
 

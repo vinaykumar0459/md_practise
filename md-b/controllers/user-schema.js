@@ -14,11 +14,11 @@ var userRegister = mongoose.Schema({
     email:  { type:String, required: true, unique: true },
     password:  { type:String, required: true },
     dateofbirth:  { type:String, required: true },
-    mobile:  { type:Number, required: true },
     gender:  { type:String, required: true },
     createdat:  { type:String, required: true },
     isregistered: { type: Boolean },
-    registerlink: { type: String }
+    registerlink: { type: String },
+    resetlink :{ type : String}
 });
 
 var user = mongoose.model("tests", userRegister);

@@ -11,6 +11,15 @@ router.post('/register', function(req,res) {
 router.post('/login', function(req,res) {
   controller.userlogin(req,res)
 });
+router.get('/verify/:registerlink', function(req,res) {
+    controller.registrationverify(req,res)
+});
+router.post('/forgotpassword', function(req,res) {
+    controller.forgotpassword(req,res);
+});
+router.post('/reset/:resetlink', function(req,res) {
+    controller.resetpassword(req,res);
+});
 // Authentication code
 router.use(function(req,res,next) {
   var token = req.body.token || req.query.token || req.headers['x-api-key'];

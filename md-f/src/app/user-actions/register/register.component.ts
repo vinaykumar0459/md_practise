@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-
+import { UserActionsService } from '../user-actions.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -25,7 +27,9 @@ export class RegisterComponent implements OnInit {
   minDate = new Date(1920, 0, 1);
   maxDate = this.today;
   User : RegisterUserDetails;
-  constructor() { }
+  user_data: any;
+  constructor( private useraction_service : UserActionsService,
+  private router : Router) { }
 
   ngOnInit() {
     this.User = {
@@ -48,15 +52,38 @@ export class RegisterComponent implements OnInit {
     body.classList.remove('register_body');
   }
   registerform(User) {
-    console.log(this.User)
-    // this.User.username = undefined;
-    // this.User.email = undefined;
-    // this.User.password = undefined;
-    // this.User.confirmpassword = undefined;
-    // this.User.dateofbirth = undefined;
-    // this.User.gender = undefined;
+    this.useraction_service.user_action_url = 'http://localhost:3000/register/';
+    this.useraction_service.data = this.User;
+    this.useraction_service.post_method().subscribe(res => {
+      this.user_data = res.json();
+      if(this.user_data.status == 1) {
+        Swal({
+          text: 'Username already exists, try with another Username',
+          type: 'error'
+        });
+        this.User.password = "";
+        this.User.confirmpassword = "";
+      } else if(this.user_data.status == 2){
+        Swal({
+          text: 'Email already exists, try with another Email',
+          type: 'error'
+        });
+        this.User.password = "";
+        this.User.confirmpassword = "";
+      } else {
+        Swal({
+          text: 'Dear ' + this.user_data.username+', Please verify your Email ID',
+          type: 'success',
+          confirmButtonText: 'OK'
+        }).then((result) => {
+          this.router.navigate(['/login']);
+        });
+      }
+    },(error: any) => {
+        console.log(error);
+    }
+  );
   }
-
 }
 interface RegisterUserDetails {
   username : String;
