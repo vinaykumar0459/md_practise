@@ -37,8 +37,8 @@ export class ForgotPasswordComponent implements OnInit {
       this.user_data = res.json();
       if(this.user_data.status == 1) {
         Swal({
-          text: 'Invalid Reset link or expired',
-          type: 'error',
+          text: 'Reset password link sent to mail',
+          type: 'success',
           confirmButtonText: 'OK'
         }).then((result) => {
           this.router.navigate(['/login']);

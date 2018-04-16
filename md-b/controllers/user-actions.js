@@ -56,12 +56,13 @@ exports.userregistration = function(req,res) {
                     let register_link1 = crypto.randomBytes(20, req.body.username).toString('hex');
                     let register_link2 = crypto.pseudoRandomBytes(20, req.body.email).toString('hex');
                     let register_link = register_link1 + register_link2;
+                    let main_url = 'http://localhost:4200/'
                     connection.update({ email: req.body.email }, { $set: { registerlink: register_link }, expireAfterSeconds: 20 }, function(err, docs) {});
                     const mailOptions = {
                         from: 'vinaykumar.webdesigner@email.com', // sender address
                         to: req.body.email, // list of receivers
                         subject: req.body.username + ', Registration confirmation mail', // Subject line
-                        html: '<p>click here to register <a href="http://localhost:3000/verify/'+register_link+'">http://localhost:3000/verify/'+register_link+'</a></p>'// plain text body
+                        html: '<p>click here to register <a href="'+main_url+'verify/'+register_link+'">'+main_url+'verify/'+register_link+'</a></p>'// plain text body
                     };
                     transporter.sendMail(mailOptions, function (err, info) {
                     if(err)
